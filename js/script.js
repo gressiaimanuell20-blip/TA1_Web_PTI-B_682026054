@@ -1,14 +1,15 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Tahun otomatis pada footer
+    // 1. TAHUN OTOMATIS PADA FOOTER
     const yearSpan = document.getElementById("currentYear");
 
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // Navbar shadow ketika halaman digulir
+
+    // 2. NAVBAR SHADOW KETIKA HALAMAN DIGULIR
     const navbar = document.getElementById("mainNavbar");
 
     const updateNavbar = () => {
@@ -23,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
         passive: true
     });
 
-    // Tutup menu navigasi setelah link dipilih di layar kecil
+
+    // 3. TUTUP MENU NAVIGASI SETELAH LINK DIPILIH
     const navbarCollapse = document.getElementById("navbarNav");
 
     document.querySelectorAll(
@@ -46,7 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    // Filter pendidikan dan organisasi
+
+    // 4. FILTER PENDIDIKAN DAN ORGANISASI
     const filterButtons = document.querySelectorAll(".btn-filter");
     const journeyGroups = document.querySelectorAll(".journey-group");
 
@@ -56,12 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const filterValue = button.dataset.filter || "all";
 
-            // Atur tombol aktif
+            // Mengatur tombol aktif
             filterButtons.forEach((item) => {
                 item.classList.toggle("active", item === button);
             });
 
-            // Tampilkan kategori sesuai filter
+            // Menampilkan kategori sesuai filter
             journeyGroups.forEach((group) => {
 
                 const category = group.dataset.category;
@@ -72,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 group.hidden = !visible;
 
+                // Mengatur ukuran kolom Bootstrap
                 group.classList.remove(
                     "col-lg-5",
                     "col-lg-7",
